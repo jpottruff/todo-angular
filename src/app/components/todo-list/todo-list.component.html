@@ -1,3 +1,9 @@
-<ul class="todo-list">
-    <li *ngFor="let item of items">{{item.text}}</li>
-</ul>
+<h2 class="no-items-msg" *ngIf="items.length === 0; else todoList">
+    No Items
+</h2>
+
+<ng-template #todoList>
+    <ul class="todo-list" #todoList>
+        <li *ngFor="let item of items">{{item.text}}</li>
+    </ul>
+</ng-template>
