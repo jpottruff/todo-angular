@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Form, NgForm } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Todo } from '../../app.component';
 
 @Component({
   selector: 'app-new-item-form',
@@ -7,7 +8,14 @@ import { Form, NgForm } from '@angular/forms';
   styleUrls: ['./new-item-form.component.css']
 })
 export class NewItemFormComponent {
+  @Output() onAddTodo = new EventEmitter<Todo>();
+
   onSubmit(form: NgForm) {
-    console.log(form.value)
+    const newTodo = {
+      id: undefined,  // * This really isn't necessary in angular vs. react world
+      text: form.value.newItemText
+    }
+    this.onAddTodo.emit(newTodo)
+    form.resetForm();
   }
 }
