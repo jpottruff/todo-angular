@@ -16,7 +16,11 @@ export class AppComponent {
   addTodoHandler(todo: Todo) {
     this.todoItems.push({
       ...todo,
-      id: `${this.todoItems.length + 1}`
+      id: `${Date.now()}`
     });
+  }
+
+  deleteTodoHandler(deletedItem: Todo) {
+    this.todoItems = this.todoItems.filter(item => item.id !== deletedItem.id)
   }
 }

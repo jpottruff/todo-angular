@@ -1,3 +1,3 @@
 <h1 class="title">Todo List Angular</h1>
 <app-new-item-form (onAddTodo)="addTodoHandler($event)"></app-new-item-form>
-<app-todo-list [items]="todoItems"></app-todo-list>
+<app-todo-list [items]="todoItems" (onDelete)="deleteTodoHandler($event)"></app-todo-list>

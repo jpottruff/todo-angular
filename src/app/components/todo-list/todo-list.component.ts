@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Todo } from '../../app.component';
 
 @Component({
   selector: 'app-todo-list',
@@ -6,5 +7,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent {
-  @Input() items: any[] = [];  
+  @Input() items: Todo[] = [];  
+  @Output() onDelete = new EventEmitter<Todo>()
+
+  clickHandler(item: Todo) {
+    this.onDelete.emit(item);
+  }
 }

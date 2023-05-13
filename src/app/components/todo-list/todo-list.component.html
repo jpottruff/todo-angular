@@ -4,6 +4,9 @@
 
 <ng-template #todoList>
     <ul class="todo-list" #todoList>
-        <li *ngFor="let item of items">{{item.text}}</li>
+        <li *ngFor="let item of items">
+            <span>{{item.text}}</span>
+            <button class="btn" (click)="clickHandler(item)">x</button>
+        </li>
     </ul>
 </ng-template>
